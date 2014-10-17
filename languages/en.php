@@ -41,7 +41,11 @@ $english = array(
 	 'plugins:project:title:version' => "%s for Elgg %s",
 	 'plugins:author:byline' => "by %s",
 	 'plugins:last:updated' => "Last updated %s",
-
+	 'plugins:project:outdated_warning' => "<strong>Warning:</strong> This plugin has't been updated in over %s years. It may no longer be maintained.",
+	 'plugins:project:help' => "What <i>you</i> can do to help:",
+	 'plugins:project:ask' => "Ask in the comments section below, whether the author is planning to update the plugin",
+	 'plugins:project:collaborate' => "Help the author by forking the project and providing upgrade patches",
+	 'plugins:project:request_ownership' => "If the author won't respond, make a request to become the new author of the plugin",
 
 	/**
 	 * Menu items and titles
@@ -183,6 +187,15 @@ $english = array(
 	'plugins:matching' => 'Plugins matching',
 	'plugins:add:contributor' => "Add Contributors: %s",
 	'plugins:title:transfer_plugin' => "Transfer Plugin: %s",
+	'plugins:title:request_ownership' => "Request ownership of the plugin: %s",
+	'plugins:project:request_ownership:desc' => "<p>This form allows you to request the authorship of the plugin project.</p>
+<p>Please tell us a bit about yourself so we'll know that the plugin will be in good hands. You can tell for example:</p>
+<ul>
+	<li>Why do you want to become the author?</li>
+	<li>What kind of experience do you have in plugin development?</li>
+	<li>What would make you a good author or the plugin?</li>
+	<li>What kind of changes would you do to the plugin?</li>
+</ul>",
 
 	/**
 	 * Notifications

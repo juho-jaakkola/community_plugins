@@ -247,8 +247,9 @@ function plugins_page_handler($segments) {
 		"plugins/releases/view" => "/plugins/{plugin}/releases/{version}",
 		"plugins/screenshots/index" => "/plugins/{plugin}/screenshots",
 		"plugins/screenshots/view" => "/plugins/{plugin}/screenshots/{screenshot}.jpg",
+		"plugins/request" => "/plugins/{plugin}/request",
 	);
-	
+
 	$forwards = array(
 		"/plugins/all" => function() {
 			forward("/plugins");
@@ -312,7 +313,7 @@ function plugins_page_handler($segments) {
 		"/plugins/{guid}/{release}" => function() {
 			$plugin = get_input('plugin');
 			$release = get_input('release');
-			
+
 			forward("/plugins/$plugin/releases/$release");
 		},
 		"/plugins/{username}/read/{plugin}/{title}" => function() {
@@ -326,21 +327,21 @@ function plugins_page_handler($segments) {
 			forward("/plugins/$plugin/screenshots/$screenshot.$timestamp.jpg");
 		},
 	);
-	
+
 	array_unshift($segments, 'plugins');
 	$path = "/" . implode("/", $segments);
 	$plugin_dir = dirname(__FILE__);
 	$pages_dir = "$plugin_dir/pages";
-	
+
 	foreach($urls as $state => $template_str) {
 		$template = new Elgg\CommunityPlugins\UriTemplate($template_str);
-		
+
 		$result = $template->match($path);
 		if ($result !== null) {
 			foreach ($result as $name => $value) {
 				set_input($name, $value);
 			}
-			
+
 			include_once("$pages_dir/$state.php");
 			return true;
 		}
@@ -353,7 +354,7 @@ function plugins_page_handler($segments) {
 			foreach ($result as $name => $value) {
 				set_input($name, $value);
 			}
-			
+
 			$callback();
 			return true;
 		}
@@ -372,7 +373,7 @@ function plugins_image_page_handler($page) {
 	// fileguid/createtime.jpg
 	$icon_guid = $page[0];
 	$plugin_guid = get_entity($icon_guid)->getContainerGuid();
-	
+
 	forward("/plugins/$plugin_guid/icons/$icon_guid.jpg");
 }
 
